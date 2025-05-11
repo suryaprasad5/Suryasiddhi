@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surya Siddhi Life Coaching</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f5f0;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff7b00, #ff9a00);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Specific styles for Vedic Astro page */
+        section {
+            margin: 2rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ff7b00;
+            font-size: 2rem;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff7b00, #ff9a00);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(255, 123, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #ff9a00, #ff7b00);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 123, 0, 0.4);
+        }
+
+        /* Hero banner */
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/400') center/cover no-repeat;
+            color: white;
+            padding: 4rem 1rem 7rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Stars animation */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Zodiac wheel animation */
+        .zodiac-wheel-container {
+            max-width: 300px;
+            margin: 2rem auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .zodiac-wheel {
+            width: 100%;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 60s linear infinite;
+            border: 3px solid #ff9933;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 153, 51, 0.6);
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 215, 0, 0.9) 0%,
+                rgba(255, 153, 51, 0.8) 30%,
+                rgba(255, 69, 0, 0.7) 60%,
+                rgba(139, 0, 0, 0.6) 100%
+            );
+            overflow: hidden;
+        }
+        
+        /* Sun rays effect */
+        .sun-rays {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 150px;
+            width: 3px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            transform-origin: bottom center;
+            animation: ray-pulsate 4s infinite ease-in-out;
+        }
+        
+        @keyframes ray-pulsate {
+            0%, 100% { opacity: 0.4; height: 140px; }
+            50% { opacity: 0.8; height: 160px; }
+        }
+        
+        /* Sun core effect */
+        .sun-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 215, 0, 0.9) 40%,
+                rgba(255, 153, 51, 0.7) 70%
+            );
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+            z-index: 2;
+            animation: glow 4s infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.9); }
+            100% { box-shadow: 0 0 50px rgba(255, 215, 0, 1); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .zodiac-sign {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            animation: pulse 3s infinite alternate;
+            z-index: 10;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); }
+            100% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 153, 51, 0.5); }
+        }
+
+        /* More detailed service section */
+        .detailed-services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detailed-service {
+            background-color: #fff;
+            border: 2px solid #ff9933;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .detailed-service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 153, 51, 0.2);
+        }
+
+        .detailed-service h3 {
+            font-size: 1.6rem;
+            color: #ff9933;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .detailed-service p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .detailed-service ul {
+            text-align: left;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .detailed-service li {
+            margin-bottom: 0.5rem;
+        }
+
+        .detailed-service .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ff9933;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-book {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9933;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #e68a00;
+        }
+
+        /* Testimonials section */
+        .testimonials {
+            background-color: #fff7c7;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-radius: 10px;
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .testimonial {
+            scroll-snap-align: start;
+            min-width: 300px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            text-align: left;
+        }
+
+        .testimonial .author {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 1rem;
+            color: #ff9933;
+        }
+
+        /* Contact form */
+        .contact-form {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ff9933;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #ff9933;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #e68a00;
+        }
+
+        /* YouTube Videos Section */
+        .youtube-section {
+            background-color: #f9f9f9;
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 153, 51, 0.8);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover .play-button {
+            background-color: rgba(255, 153, 51, 1);
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-card h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0 1rem 1rem;
+            text-align: left;
+        }
+
+        .btn-youtube {
+            display: block;
+            background-color: #ff9933;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-youtube:hover {
+            background-color: #e68a00;
+        }
+
+        .youtube-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-channel {
+            display: inline-block;
+            background-color: #ff0000; /* YouTube red */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-channel:hover {
+            background-color: #cc0000;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+            background: linear-gradient(to right, #fff7e6, #fff);
+        }
+
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .astrologer-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .astrologer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .astrologer-info h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .astrologer-title {
+            font-size: 1.2rem;
+            color: #ff9933;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .astrologer-bio p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .credentials, .approach, .featured-in {
+            margin-top: 2rem;
+        }
+
+        .astrologer-info h4 {
+            font-size: 1.3rem;
+            color: #ff9933;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .astrologer-info ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+
+        .astrologer-info li {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .featured-logos {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .featured-logo {
+            flex: 1;
+            height: 60px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+
+        /* Back to home link */
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: #ff9933;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .portfolio-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .astrologer-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 0.5rem;
+            }
+            
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .detailed-service {
+                width: 100%;
+            }
+        }
+    
+        .detailed-services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .detailed-service {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .detailed-service .btn-book {
+            margin-top: auto;
+        }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Surya Siddhi Logo" />
+    <h1>Surya Siddhi Life Coaching</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vedic-astro-page.html">Vedic Astrology</a></li>
+      <li><a href="life-coach.html" class="active">Life Coaching</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero-banner">
+  <div class="stars" id="stars"></div>
+  <h1>Transform Your Life with Empowered Coaching</h1>
+  <p>Gain clarity, build confidence, and align your life with purpose through personalized coaching sessions.</p>
+  <div class="zodiac-wheel-container">
+    <div class="zodiac-wheel" id="zodiacWheel">
+      <div class="sun-rays" id="sunRays"></div>
+      <div class="sun-core"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Holistic Life Coaching Services</h2>
+    <p>Our life coaching services blend ancient wisdom with modern practices to help you uncover your true potential, break limiting patterns, and step into a life of clarity, confidence, and purpose.</p>
+
+    <div class="detailed-services">
+      <div class="detailed-service">
+        <h3>Personal Clarity Coaching</h3>
+        <p>Identify your life goals, inner blocks, and rediscover your authentic path with one-on-one guidance.</p>
+        <ul>
+          <li>Self-discovery exercises</li>
+          <li>Goal setting and vision mapping</li>
+          <li>Mindset and belief transformation</li>
+          <li>Ongoing support and accountability</li>
+        </ul>
+        <a class="btn-book" href="#contact-form">Book Session</a>
+      </div>
+
+      <div class="detailed-service">
+        <h3>Spiritual Growth Coaching</h3>
+        <p>Explore your spiritual journey and connect with deeper purpose through guided inquiry and energy-based tools.</p>
+        <ul>
+          <li>Chakra and energy alignment</li>
+          <li>Spiritual journaling practices</li>
+          <li>Daily rituals and affirmations</li>
+          <li>Integration of astrology insights</li>
+        </ul>
+        <a class="btn-book" href="#contact-form">Book Session</a>
+      </div>
+
+      <div class="detailed-service">
+        <h3>Stress & Emotional Mastery</h3>
+        <p>Build emotional resilience and release chronic stress through techniques that align body, mind, and soul.</p>
+        <ul>
+          <li>Breathwork and meditation coaching</li>
+          <li>Mind-body awareness techniques</li>
+          <li>Customized emotional management tools</li>
+          <li>Integration of Ayurvedic lifestyle practices</li>
+        </ul>
+        <a class="btn-book" href="#contact-form">Book Session</a>
+      </div>
+
+      <div class="detailed-service">
+        <h3>Relationship Empowerment</h3>
+        <p>Improve communication and deepen intimacy in your relationships, starting with the most important one — with yourself.</p>
+        <ul>
+          <li>Conscious communication tools</li>
+          <li>Self-love and boundaries work</li>
+          <li>Emotional healing guidance</li>
+          <li>Couples coaching available on request</li>
+        </ul>
+        <a class="btn-book" href="#contact-form">Book Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact-form">
+  <div class="container">
+    <h2>Book Your Life Coaching Session</h2>
+    <p>Fill out the form below to schedule a personalized coaching session tailored to your life goals and needs.</p>
+    <div class="contact-form">
+      <form action="#" method="post">
+        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" required></div>
+        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" required></div>
+        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone"></div>
+        <div class="form-group"><label for="goal">Primary Life Goal</label><input type="text" id="goal" name="goal"></div>
+        <div class="form-group"><label for="service">Coaching Area</label>
+          <select id="service" name="service" required>
+            <option value="">-- Select a Coaching Area --</option>
+            <option value="clarity">Personal Clarity Coaching</option>
+            <option value="spiritual">Spiritual Growth</option>
+            <option value="stress">Emotional Mastery</option>
+            <option value="relationship">Relationship Empowerment</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="message">Anything specific you'd like to share?</label><textarea id="message" name="message"></textarea></div>
+        <button type="submit" class="submit-btn">Schedule Session</button>
+      </form>
+    </div>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Surya Siddhi Vedic Astro & Life Coach. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Copy the zodiac/star animation JS from your other page
+</script>
+
+</body>
+</html>
