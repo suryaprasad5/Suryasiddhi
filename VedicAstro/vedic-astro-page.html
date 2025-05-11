@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Surya Siddhi Vedic Astro</title>
+<link href="logo.png" rel="icon" type="image/png"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f5f0;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff7b00, #ff9a00);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Specific styles for Vedic Astro page */
+        section {
+            margin: 2rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ff7b00;
+            font-size: 2rem;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff7b00, #ff9a00);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(255, 123, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #ff9a00, #ff7b00);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 123, 0, 0.4);
+        }
+
+        /* Hero banner */
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/400') center/cover no-repeat;
+            color: white;
+            padding: 4rem 1rem 7rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Stars animation */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Zodiac wheel animation */
+        .zodiac-wheel-container {
+            max-width: 300px;
+            margin: 2rem auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .zodiac-wheel {
+            width: 100%;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 60s linear infinite;
+            border: 3px solid #ff9933;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 153, 51, 0.6);
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 215, 0, 0.9) 0%,
+                rgba(255, 153, 51, 0.8) 30%,
+                rgba(255, 69, 0, 0.7) 60%,
+                rgba(139, 0, 0, 0.6) 100%
+            );
+            overflow: hidden;
+        }
+        
+        /* Sun rays effect */
+        .sun-rays {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 150px;
+            width: 3px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            transform-origin: bottom center;
+            animation: ray-pulsate 4s infinite ease-in-out;
+        }
+        
+        @keyframes ray-pulsate {
+            0%, 100% { opacity: 0.4; height: 140px; }
+            50% { opacity: 0.8; height: 160px; }
+        }
+        
+        /* Sun core effect */
+        .sun-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 215, 0, 0.9) 40%,
+                rgba(255, 153, 51, 0.7) 70%
+            );
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+            z-index: 2;
+            animation: glow 4s infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.9); }
+            100% { box-shadow: 0 0 50px rgba(255, 215, 0, 1); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .zodiac-sign {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            animation: pulse 3s infinite alternate;
+            z-index: 10;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); }
+            100% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 153, 51, 0.5); }
+        }
+
+        /* More detailed service section */
+        .detailed-services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detailed-service {
+            background-color: #fff;
+            border: 2px solid #ff9933;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .detailed-service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 153, 51, 0.2);
+        }
+
+        .detailed-service h3 {
+            font-size: 1.6rem;
+            color: #ff9933;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .detailed-service p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .detailed-service ul {
+            text-align: left;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .detailed-service li {
+            margin-bottom: 0.5rem;
+        }
+
+        .detailed-service .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ff9933;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-book {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9933;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #e68a00;
+        }
+
+        /* Testimonials section */
+        .testimonials {
+            background-color: #fff7c7;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-radius: 10px;
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .testimonial {
+            scroll-snap-align: start;
+            min-width: 300px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            text-align: left;
+        }
+
+        .testimonial .author {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 1rem;
+            color: #ff9933;
+        }
+
+        /* Contact form */
+        .contact-form {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ff9933;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #ff9933;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #e68a00;
+        }
+
+        /* YouTube Videos Section */
+        .youtube-section {
+            background-color: #f9f9f9;
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 153, 51, 0.8);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover .play-button {
+            background-color: rgba(255, 153, 51, 1);
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-card h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0 1rem 1rem;
+            text-align: left;
+        }
+
+        .btn-youtube {
+            display: block;
+            background-color: #ff9933;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-youtube:hover {
+            background-color: #e68a00;
+        }
+
+        .youtube-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-channel {
+            display: inline-block;
+            background-color: #ff0000; /* YouTube red */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-channel:hover {
+            background-color: #cc0000;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+            background: linear-gradient(to right, #fff7e6, #fff);
+        }
+
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .astrologer-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .astrologer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .astrologer-info h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .astrologer-title {
+            font-size: 1.2rem;
+            color: #ff9933;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .astrologer-bio p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .credentials, .approach, .featured-in {
+            margin-top: 2rem;
+        }
+
+        .astrologer-info h4 {
+            font-size: 1.3rem;
+            color: #ff9933;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ff9933;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .astrologer-info ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+
+        .astrologer-info li {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .featured-logos {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .featured-logo {
+            flex: 1;
+            height: 60px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+
+        /* Back to home link */
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: #ff9933;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .portfolio-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .astrologer-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 0.5rem;
+            }
+            
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .detailed-service {
+                width: 100%;
+            }
+        }
+    
+        .detailed-services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .detailed-service {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .detailed-service .btn-book {
+            margin-top: auto;
+        }
+</style>
+</head>
+<body>
+<header>
+<div class="logo">
+<img alt="Surya Siddhi Logo" src="logo.png"/>
+<h1>Surya Siddhi Vedic Astro &amp; Life Coach</h1>
+</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="vedic-astro-page.html">Vedic Astrology</a></li>
+<li><a href="life-coach.html">Life Coaching</a></li>
+</ul>
+</nav>
+</header>
+<section class="hero-banner">
+<div class="stars" id="stars"></div>
+<h1>Journey Through The Cosmic Wisdom</h1>
+<p>Discover the ancient Vedic knowledge that can illuminate your path, reveal your true potential, and guide you through life's journey.</p>
+<div class="zodiac-wheel-container">
+<div class="zodiac-wheel" id="zodiacWheel">
+<div class="sun-rays" id="sunRays"></div>
+<div class="sun-core"></div>
+<!-- Zodiac signs will be added via JavaScript -->
+</div>
+</div>
+</section>
+<section>
+<div class="container">
+<h2>The Cosmic Dance of Planets</h2>
+<p>Vedic Astrology, also known as Jyotish, is an ancient Indian system of astrology that helps us understand the influence of celestial bodies on our lives. It offers profound insights into your personality, relationships, career, and spiritual journey.</p>
+<h2>Our Vedic Astrology Services</h2>
+<p>Explore our comprehensive range of personalized Vedic astrology services designed to bring clarity and guidance to your life.</p>
+<div class="detailed-services">
+<div class="detailed-service">
+<h3>Birth Chart Analysis</h3>
+<p>A comprehensive analysis of your birth chart (Janam Kundali) that reveals:</p>
+<ul>
+<li>Your inherent strengths and weaknesses</li>
+<li>Natural talents and abilities</li>
+<li>Potential challenges and opportunities</li>
+<li>Karmic patterns from past lives</li>
+<li>Birth time rectification based on event history</li></ul>
+<p>Our expert astrologers will provide detailed interpretations and practical advice based on your unique planetary positions.</p>
+<a class="btn-book" href="#contact-form">Book Consultation</a>
+</div>
+<div class="detailed-service">
+<h3>Relationship Compatibility</h3>
+<p>Understanding the cosmic connection between you and your partner through:</p>
+<ul>
+<li>Guna Milan (Ashtakoot matching)</li>
+<li>Planetary compatibility analysis</li>
+<li>Strength of relationship indicators</li>
+<li>Potential challenges and remedies</li>
+</ul>
+<p>Perfect for couples considering marriage or wanting to strengthen their existing relationship.</p>
+<a class="btn-book" href="#contact-form">Book Consultation</a>
+</div>
+<div class="detailed-service">
+<h3>Career &amp; Financial Guidance</h3>
+<p>Discover your professional path and financial prospects through:</p>
+<ul>
+<li>Analysis of 2nd, 6th, and 10th houses</li>
+<li>Identification of favorable career directions</li>
+<li>Timing of career transitions and opportunities</li>
+<li>Financial prosperity periods and challenges</li>
+</ul>
+<p>Get clarity on your professional journey and make informed decisions about your career and investments.</p>
+<a class="btn-book" href="#contact-form">Book Consultation</a>
+</div>
+<div class="detailed-service">
+<h3>Palm Reading</h3>
+<p>Gain insights through palmistry readings that interpret the lines, mounts, and shapes of your hand.</p>
+<ul><li>Life line, head line, heart line interpretations</li><li>Career and relationship indicators</li><li>Personality traits from hand structure</li><li>Guidance on remedies based on palm features</li></ul>
+<p>Plan your year wisely with cosmic insights that help you navigate challenges and seize opportunities.</p>
+<a class="btn-book" href="#contact-form">Book Consultation</a>
+</div>
+<div class="detailed-service">
+<h3>Vedic Remedies</h3>
+<p>Personalized remedies to mitigate challenging planetary influences:</p>
+<ul>
+<li>Gemstone recommendations</li>
+<li>Mantras and spiritual practices</li>
+<li>Yantra and ritual guidance</li>
+<li>Lifestyle adjustments for cosmic harmony</li>
+</ul>
+<p>Our remedies are practical, authentic, and designed to bring positive changes while respecting your personal beliefs.</p>
+<a class="btn-book" href="#contact-form">Book Consultation</a>
+</div>
+<div class="detailed-service">
+<h3>Medical Astrology</h3>
+<p>Understand health tendencies and potential issues through:</p>
+<ul>
+<li>Analysis of health-related houses</li>
+<li>Planetary influences on different body systems</li>
+<li>Preventive measures based on your chart</li>
+<li>Timing of health-sensitive periods</li>
+</ul>
+<p>Note: This service complements but does not replace professional medical advice.</p>
+<a class="btn-book" href="#contact-form">Book Consultation</a>
+</div>
+<div class="detailed-service"><h3>Tarot Reading</h3><p>Uncover hidden patterns and receive intuitive guidance through Tarot.</p><ul><li>Card spreads for life, love, and career</li><li>Intuitive interpretations with spiritual insight</li><li>Decision-making support</li><li>Visualization of near-future energies</li></ul><p>Receive practical insights and direction through personalized sessions.</p><a class="btn-book" href="#contact-form">Book Consultation</a></div><div class="detailed-service"><h3>Prashna Shastra</h3><p>Ask a question and get astrological guidance based on the moment of inquiry.</p><ul><li>Horary astrology reading</li><li>Precise answers to urgent questions</li><li>Decision timing analysis</li><li>Effective Vedic remedies suggested</li></ul><p>Receive practical insights and direction through personalized sessions.</p><a class="btn-book" href="#contact-form">Book Consultation</a></div></div>
+</div>
+</section>
+<section class="youtube-section">
+<div class="container">
+<h2>Featured Videos</h2>
+<p>Explore our collection of educational videos on Vedic astrology, spiritual practices, and cosmic wisdom.</p>
+<div class="videos-container">
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Video thumbnail" src="https://img.youtube.com/vi/AxnoW8V55as/default.jpg">
+<div class="play-button">
+<svg height="50" viewbox="0 0 24 24" width="50">
+<path d="M8 5v14l11-7z" fill="#fff"></path>
+</svg>
+</div>
+</img></div>
+<h3>Rashi Bhavishya 2025</h3>
+<p>My interpretation on how the year 2025 would be for 12 zodiacs according Vedic Astrology .</p>
+<a class="btn-youtube" data-video-id="video-id-1" href="https://youtu.be/AxnoW8V55as?si=S6PSkvN_U4p2BXJm0">Watch Video</a>
+</div>
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Video thumbnail" src="https://img.youtube.com/vi/sRYnzq7wAk0/default.jpg"/>
+<div class="play-button">
+<svg height="50" viewbox="0 0 24 24" width="50">
+<path d="M8 5v14l11-7z" fill="#fff"></path>
+</svg>
+</div>
+</div>
+<h3>Understanding Lakshminarayana Yoga</h3>
+<p>Lakshminarayana Yoga is one of the great yogas according to vedic astrology.</p>
+<a class="btn-youtube" data-video-id="video-id-2" href="https://youtu.be/sRYnzq7wAk0?si=GkQ5q0BeA9n9BTCx">Watch Video</a>
+</div>
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Video thumbnail" src="https://img.youtube.com/vi/Qtaa7HfnJwo/default.jpg"/>
+<div class="play-button">
+<svg height="50" viewbox="0 0 24 24" width="50">
+<path d="M8 5v14l11-7z" fill="#fff"></path>
+</svg>
+</div>
+</div>
+<h3>Vaara Bhavishya 27th April 2025 to 4th May 2025</h3>
+<p>How planetary movements affect your daily life during this period.</p>
+<a class="btn-youtube" data-video-id="video-id-3" href="https://youtu.be/Qtaa7HfnJwo?si=TecBFTxKjy6_lRT1">Watch Video</a>
+</div>
+</div>
+<div class="youtube-cta">
+<p>For more informative videos, visit our YouTube channel</p>
+<a class="btn-channel" href="https://www.youtube.com/@DivyaJyotishya">Visit Channel</a>
+</div>
+</div>
+</section>
+<section class="portfolio">
+<div class="container">
+<h2>About The Astrologer</h2>
+<div class="portfolio-content">
+<div class="astrologer-image">
+<img alt="Divya Subramanya - Vedic Astrologer" src="astrologer-image.jpg"/>
+</div>
+<div class="astrologer-info">
+<h3>Divya Subramanya</h3>
+<p class="astrologer-title">Vedic Astrologer &amp; Life Coach</p>
+<div class="astrologer-bio">
+<p>With over 10 years of experience in Vedic astrology, I have guided thousands of individuals through life's challenges and transformations. My journey began under the gentle guidance of my father, whose devotion to learning and sharing this divine wisdom lit the first flame within me. Along the way, I have been truly blessed by the grace of revered gurus, whose timeless knowledge and spiritual blessings continue to illuminate my path.</p>
+<p>I combine traditional Vedic knowledge with modern psychological insights to provide holistic guidance that respects both cosmic influences and personal free will.</p>
+</div>
+<div class="credentials">
+<h4>Certifications &amp; Training</h4>
+<ul>
+<li>Advanced Diploma in Vedic Astrology, Karnataka Samskruta University</li>
+<li>Certification in Nadi Astrology</li>
+</ul>
+</div>
+<div class="approach">
+<h4>My Approach</h4>
+<p>I believe that Vedic astrology is not about predicting a fixed fate, but about understanding your cosmic blueprint and working with these energies to create your best life. My readings focus on:</p>
+<ul>
+<li>Identifying your innate strengths and potential challenges</li>
+<li>Understanding timing of important life events</li>
+<li>Providing practical remedies and life strategies</li>
+<li>Empowering you to make conscious choices</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+<section class="testimonials">
+<div class="container">
+<h2>Client Testimonials</h2>
+<div class="testimonial-container">
+<div class="testimonial">
+<p>"The birth chart analysis was incredibly accurate and insightful. It helped me understand my life patterns and make better decisions. Highly recommended!"</p>
+<div class="author">- Priya M.</div>
+</div>
+<div class="testimonial">
+<p>"I was skeptical at first, but the career guidance I received was spot on. Within months of following the suggested path, I found a job that truly aligns with my potential."</p>
+<div class="author">- Rahul S.</div>
+</div>
+<div class="testimonial">
+<p>"The relationship compatibility reading saved us from making a big mistake. The insights helped us understand our dynamics and work on potential problem areas."</p>
+<div class="author">- Anjali &amp; Vivek</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact-form">
+<div class="container">
+<h2>Book Your Consultation</h2>
+<p>Fill out the form below to schedule your personalized Vedic astrology consultation.</p>
+<div class="contact-form">
+<form action="#" method="post">
+<div class="form-group">
+<label for="name">Full Name</label>
+<input id="name" name="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input id="phone" name="phone" type="tel"/>
+</div>
+<div class="form-group">
+<label for="dob">Date of Birth</label>
+<input id="dob" name="dob" required="" type="date"/>
+</div>
+<div class="form-group">
+<label for="tob">Time of Birth (if known)</label>
+<input id="tob" name="tob" type="time"/>
+</div>
+<div class="form-group">
+<label for="pob">Place of Birth</label>
+<input id="pob" name="pob" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="service">Service Interested In</label>
+<select id="service" name="service" required="">
+<option value="">-- Select a Service --</option>
+<option value="birth-chart">Birth Chart Analysis</option>
+<option value="compatibility">Relationship Compatibility</option>
+<option value="career">Career &amp; Financial Guidance</option>
+<option value="yearly">Yearly Predictions</option>
+<option value="remedies">Vedic Remedies</option>
+<option value="medical">Medical Astrology</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Specific Questions or Concerns</label>
+<textarea id="message" name="message"></textarea>
+</div>
+<button class="submit-btn" type="submit">Schedule Consultation</button>
+</form>
+</div>
+<a class="back-link" href="index.html">← Back to Home</a>
+</div>
+</section>
+<footer>
+<div class="container">
+<p>© 2025 Surya Siddhi Vedic Astro &amp; Life Coach. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Create stars for the hero banner
+        document.addEventListener('DOMContentLoaded', function() {
+            const starsContainer = document.getElementById('stars');
+            
+            // Create stars
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                star.style.top = `${top}%`;
+                star.style.left = `${left}%`;
+                
+                // Random animation delay
+                const delay = Math.random() * 2;
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+            
+            // Create sun rays
+            const sunRays = document.getElementById('sunRays');
+            for (let i = 0; i < 24; i++) {
+                const ray = document.createElement('div');
+                ray.classList.add('ray');
+                
+                // Position rays in a circle
+                const angle = (i * 15) * (Math.PI / 180);
+                ray.style.transform = `rotate(${i * 15}deg)`;
+                
+                // Random animation delay
+                const delay = Math.random() * 2;
+                ray.style.animationDelay = `${delay}s`;
+                
+                sunRays.appendChild(ray);
+            }
+            
+            // Create zodiac wheel signs
+            const zodiacWheel = document.getElementById('zodiacWheel');
+            const signs = [
+                '♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'
+            ];
+            
+            signs.forEach((sign, index) => {
+                const angle = (index * 30) * (Math.PI / 180);
+                const radius = 120; // Distance from center
+                
+                const left = 130 + radius * Math.cos(angle);
+                const top = 130 + radius * Math.sin(angle);
+                
+                const signElement = document.createElement('div');
+                signElement.classList.add('zodiac-sign');
+                signElement.textContent = sign;
+                signElement.style.left = `${left}px`;
+                signElement.style.top = `${top}px`;
+                
+                zodiacWheel.appendChild(signElement);
+            });
+            
+            // YouTube video click handling
+            const videoButtons = document.querySelectorAll('.btn-youtube');
+            videoButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const videoId = this.getAttribute('data-video-id');
+                    alert('Opening YouTube video: ' + videoId);
+                    // In a real implementation, you would open the video or embed it
+                    // window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
